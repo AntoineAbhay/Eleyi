@@ -10,4 +10,4 @@ def index():
 
 @app.route('/results')
 def results():
-    return "RESULTS."
+    return render_template('results.html')
