@@ -1,0 +1,72 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    width: 100%;
+    background-color: rgb(0, 92, 61);
+}
+
+.logo {
+    width: 200px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.input_container {
+    display:flex;
+    flex-direction:row;
+  
+    margin: 5px;
+    
+    border-bottom: 1px solid rgb(0, 92, 61);
+}
+
+.input {
+    flex-grow:2;
+    padding: 0.5em;
+    border: none;
+}
+
+input:focus{
+    outline: none;
+}
+
+.mapNormal {
+    width: 100%
+}
+
+.geolocation_icon {
+    height: 1em;
+    margin-top: 3px;
+    margin-right: 5px;
+}
+
+.geolocation_icon:hover {
+    cursor: pointer;
+}
+
+
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+#map {
+    flex:1;
+}
+
+.itinary {
+    border: 1px solid rgb(0, 92, 61);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+ 
