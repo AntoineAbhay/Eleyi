@@ -13,15 +13,53 @@
 		<img src="{{ url_for('static', filename='logo.svg') }}" class="logo">
     </div>
     <h1>Available Buses for your journey</h1>
-
+    <div id="back" onclick="unchoose()"> &larr; </div>
     {% for bus in buses %}
-    <div class="bus">
-        <div class="driver">{{bus.driver.name}} <span class="rating">({{bus.driver.rating}}/5)</span></div>
-        <div class="time-to-departure">Departure in approximately {{bus.time_to_departure}} min.</div>
-        <div class="time-to-arrival">Arrival in approximately {{bus.time_to_arrival}} min.</div>
-        <div class="availabe-seats">Still {{bus.number_of_seats}} seats available</div>
+    <div class="bus" id="{{bus.id}}" onclick="choose( {{bus.id}} )">
+        
+        <div class="bus-left">
+            <div class="driver">{{bus.driver.name}} <span class="rating">({{bus.driver.rating}}/5)</span></div>
+            <div class="time-to-departure">Departure in approximately {{bus.time_to_departure}} min.</div>
+            <div class="time-to-arrival">Arrival in approximately {{bus.time_to_arrival}} min.</div>
+            <div class="availabe-seats">{{bus.number_of_seats}} seats still available</div>
+        </div>
+        
+        <div class="price">{{bus.price}} FCFA</div>
+        
+        
     </div>
     {% endfor %}
+
+    <div id="confirm" class="confirm" onclick="confirm()">Confirm</div>
     
+    <script>
+        function choose(id){
+            buses = document.getElementsByClassName("bus");
+            for(var i = 0; i < buses.length; i++)
+            {
+                var bus = buses.item(i);
+                if(bus.id != id){
+                    bus.style.display = "none";
+                }
+            }
+            document.getElementById("back").style.display = "block";
+            document.getElementById("confirm").style.display = "block";
+        }
+
+        function unchoose() {
+            buses = document.getElementsByClassName("bus");
+            for(var i = 0; i < buses.length; i++)
+            {
+                var bus = buses.item(i);
+                bus.style.display = "flex";
+            }
+            document.getElementById("back").style.display = "none";
+            document.getElementById("confirm").style.display = "none";
+        }
+
+        function confirm(){
+            console.log("confirm");
+        }
+    </script>
     
 </body>

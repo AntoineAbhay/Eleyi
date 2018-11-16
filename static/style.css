@@ -69,16 +69,7 @@ h1 {
     text-align: center;
     font-size: 2em;
 }
-.bus {
-    border: 1px solid rgb(0, 92, 61);
-    border-radius: 5px;
-    padding: 5px;
-    margin: 5px;
-}
 
-.driver {
-    font-size: 1.6em;
-}
 
 
 .search-button {
@@ -91,3 +82,71 @@ h1 {
     font-family: 'Montserrat', sans-serif;
 }
 
+
+.bus {
+    border: 1px solid rgb(0, 92, 61);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.bus:hover {
+    cursor: pointer;
+}
+
+.driver {
+    font-size: 1.6em;
+    margin-bottom: 0.2em;
+}
+
+.driver .rating {
+    font-size: 0.8em;
+}
+
+.bus-left {
+    width: 70%;
+}
+
+.time-to-departure, .time-to-arrival, .availabe-seats {
+    font-size: 1.2em;
+}
+
+.price {
+    width: 30%;
+    font-size: 1.6em;
+    text-align: center; 
+}
+
+#back {
+    padding: 5px;
+    margin: 5px;
+    display: none;
+    font-size: 20px;
+    border: 1px solid rgb(0, 92, 61);
+    border-radius: 5px;
+    width: 1.2em;
+    text-align: center;
+    background-color: #eeeeee;
+}
+
+#back:hover {
+    cursor: pointer;
+}
+
+.confirm {
+    display: none;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid rgb(0, 92, 61);
+    border-radius: 5px;
+    font-size: 1.2em;
+    background-color: #fafffa;
+}
+
+.confirm:hover{
+    cursor: pointer;
+}

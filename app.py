@@ -27,10 +27,12 @@ def results():
         driver = random.choice(drivers)
         drivers.remove(driver)
         buses.append({
+                'id': i,
                 'driver': {'name': driver , 'rating': random.randrange(25, 50, 1)/10},
                 'time_to_arrival': random.randint(time_to_departure, 30),
                 'time_to_departure': time_to_departure,
-                'number_of_seats': random.randrange(1, 12)
+                'number_of_seats': random.randrange(1, 12),
+                'price': random.randrange(20,140)/10
             })
     return render_template('results.html', buses=buses)
 
