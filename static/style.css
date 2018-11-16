@@ -34,8 +34,10 @@ body {
 
 .input {
     flex-grow:2;
-    padding: 0.5em;
+    padding: 0.3em;
     border: none;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 input:focus{
@@ -63,17 +65,29 @@ input:focus{
     flex:1;
 }
 
-.itinary {
+h1 {
+    text-align: center;
+    font-size: 2em;
+}
+.bus {
     border: 1px solid rgb(0, 92, 61);
     border-radius: 5px;
     padding: 5px;
     margin: 5px;
 }
 
+.driver {
+    font-size: 1.6em;
+}
+
+
 .search-button {
     margin: 5px;
+    padding: 0.3em;
     background-color: white;
     border: 1px solid rgb(0, 92, 61);
     border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
 }
- 
+

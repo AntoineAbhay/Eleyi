@@ -12,4 +12,16 @@
 	<div class="header">
 		<img src="{{ url_for('static', filename='logo.svg') }}" class="logo">
     </div>
+    <h1>Available Buses for your journey</h1>
+
+    {% for bus in buses %}
+    <div class="bus">
+        <div class="driver">{{bus.driver.name}} <span class="rating">({{bus.driver.rating}}/5)</span></div>
+        <div class="time-to-departure">Departure in approximately {{bus.time_to_departure}} min.</div>
+        <div class="time-to-arrival">Arrival in approximately {{bus.time_to_arrival}} min.</div>
+        <div class="availabe-seats">Still {{bus.number_of_seats}} seats available</div>
+    </div>
+    {% endfor %}
+    
+    
 </body>

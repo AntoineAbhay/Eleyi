@@ -6,6 +6,7 @@
 	<title>eleyi</title>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+	<script src="https://maps.googleapis.com/maps/api/js?key={{ mapsApiKey }}&libraries=places&callback=initMap" async defer></script>
 </head>
 
 <body>
@@ -18,7 +19,11 @@
 <div class="input_container">
 	<input type="text" placeholder="Choose destination..." class="input" id="destination"/>
 </div>
-<button class="search-button" onclick="searchItinaries()">Search</button>
+<button class="search-button" onclick="location.href='/results'" type="button">Search</button>
+<!-- <button class="search-button" onclick="searchItinaries()" type="button">Search</button>
+<form action="/search" method='POST'>
+	<input type="submit" value="Submit">
+</form> -->
 <div id="error"></div>
 <div id="itinaries"></div>
 <div id="map"></div>
@@ -90,80 +95,15 @@
 		}
 	}
 
-	
-	
-	
-	
-
-	
-
-	
-	
-	
-	
-	var x = document.getElementById("error");
-	var origin = { latitude: 0, longitude: 0 };
-	var destination = { latitude: 0, longitude: 0 };
-	
-
-
-
-	
-
-
-
-
-	function showPosition(position) {
-		origin.latitude = position.coords.latitude;
-		origin.longitude = position.coords.longitude;
-		//x.innerHTML = "Latitude: " + position.coords.latitude + 
-		//"<br>Longitude: " + position.coords.longitude;
-		var here = {lat: position.coords.latitude, lng: position.coords.longitude};
-		var marker = new google.maps.Marker({
-			map: map,
-			position: here
-		});
-		map.setCenter(here);
-		map.setZoom(17);
-		document.getElementById("origin").value = "My location";
-	}
 
 	function searchItinaries(){
-		// DO THE THING
-
-		//Display
-		var itinaries = [
-			{
-				timeToDeparture : 5,
-				timeToArrival : 10,
-				chauffeur : {
-					name : 'Honoré',
-					rating : 4.6
-				}
-			}
-		];
-		var itinariesDiv = document.getElementById('itinaries');
-		itinaries.forEach(itinary => {
-
-			var chauffeurDiv = document.createElement("div");
-			chauffeurDiv.innerHTML = itinary.chauffeur.name + " (" + itinary.chauffeur.rating + "/5)";
-
-			var timeToDepartureDiv = document.createElement("div");
-			timeToDepartureDiv.innerHTML = "Votre bus viendra vous chercher dans " + itinary.timeToDeparture + " minutes.";
-			
-			var timeToArrivalDiv = document.createElement("div");
-			timeToArrivalDiv.innerHTML = "Arrivée à destination prévue dans " + itinary.timeToArrival + " minutes.";
-
-			var itinaryDiv = document.createElement("div");
-			itinaryDiv.appendChild(chauffeurDiv);
-			itinaryDiv.appendChild(timeToDepartureDiv);
-			itinaryDiv.appendChild(timeToArrivalDiv);
-			itinaryDiv.className = "itinary";
-			document.getElementById('itinaries').appendChild(itinaryDiv);
-			
-		});
+		var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+		xmlhttp.open("GET", "/results");
+		//xmlhttp.setRequestHeader("Content-Type", "application/json");
+		xmlhttp.send();
+	
 	}
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key={{ mapsApiKey }}&libraries=places&callback=initMap" async defer></script>
+
 </body>
 </html>
