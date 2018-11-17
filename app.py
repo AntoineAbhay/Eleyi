@@ -32,7 +32,7 @@ def results():
                 'time_to_arrival': random.randint(time_to_departure, 30),
                 'time_to_departure': time_to_departure,
                 'number_of_seats': random.randrange(1, 12),
-                'price': random.randrange(20,140)/10
+                'price': random.randrange(200,300)
             })
     return render_template('results.html', buses=buses)
 
