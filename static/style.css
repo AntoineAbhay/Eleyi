@@ -150,3 +150,7 @@ h1 {
 .confirm:hover{
     cursor: pointer;
 }
+
+#qr {
+    display:none;
+}

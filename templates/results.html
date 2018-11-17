@@ -31,6 +31,7 @@
     {% endfor %}
 
     <div id="confirm" class="confirm" onclick="confirm()">Confirm</div>
+    <img id="qr" src="{{ url_for('static', filename='qr.png') }}" width="200px"/>
     
     <script>
         function choose(id){
@@ -55,10 +56,12 @@
             }
             document.getElementById("back").style.display = "none";
             document.getElementById("confirm").style.display = "none";
+            document.getElementById("qr").style.display = "none";
         }
 
         function confirm(){
-            console.log("confirm");
+            console.log('condirm');
+            document.getElementById("qr").style.display = "block";
         }
     </script>
     
