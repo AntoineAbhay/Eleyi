@@ -15,7 +15,7 @@
     <h1>Available Buses for your journey</h1>
     <div id="back" onclick="unchoose()"> &larr; </div>
     {% for bus in buses %}
-    <div class="bus" id="{{bus.id}}" onclick="choose( {{bus.id}} )">
+    <div class="bus" id="{{bus.id}}" onclick="choose({{bus.id}});">
         
         <div class="bus-left">
             <div class="driver">{{bus.driver.name}} <span class="rating">({{bus.driver.rating}}/5)</span></div>
@@ -33,37 +33,6 @@
     <div id="confirm" class="confirm" onclick="confirm()">Confirm</div>
     <img id="qr" src="{{ url_for('static', filename='qr.png') }}" width="200px"/>
     
-    <script>
-        function choose(id){
-            buses = document.getElementsByClassName("bus");
-            for(var i = 0; i < buses.length; i++)
-            {
-                var bus = buses.item(i);
-                if(bus.id != id){
-                    bus.style.display = "none";
-                }
-            }
-            document.getElementById("back").style.display = "block";
-            document.getElementById("confirm").style.display = "block";
-        }
-
-        function unchoose() {
-            buses = document.getElementsByClassName("bus");
-            for(var i = 0; i < buses.length; i++)
-            {
-                var bus = buses.item(i);
-                bus.style.display = "flex";
-            }
-            document.getElementById("back").style.display = "none";
-            document.getElementById("confirm").style.display = "none";
-            document.getElementById("qr").style.display = "none";
-        }
-
-        function confirm(){
-            document.getElementById("qr").style.display = "block";
-        }
-
-        document.getElementById("body").style.display = "block";
-    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='results-script.js') }}" ></script>
     
 </body>
